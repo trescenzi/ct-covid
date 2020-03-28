@@ -132,34 +132,6 @@ const RateCharts = ({ csvs }) => html`
           title: "Rate of Cases By County",
         }}
       />
-      <${RateOfGrowthCSVChart}
-        csv=${csvs.deaths}
-        yColumns=${OVERALL}
-        layoutOptions=${{
-          title: "Rate of Deaths",
-        }}
-      />
-      <${RateOfGrowthCSVChart}
-        csv=${csvs.deaths}
-        yColumns=${BY_COUNTY}
-        layoutOptions=${{
-          title: "Rate of Deaths by County",
-        }}
-      />
-      <${RateOfGrowthCSVChart}
-        csv=${csvs.hospitalizations}
-        yColumns=${OVERALL}
-        layoutOptions=${{
-          title: "Rate of Hospitalizations",
-        }}
-      />
-      <${RateOfGrowthCSVChart}
-        csv=${csvs.hospitalizations}
-        yColumns=${BY_COUNTY}
-        layoutOptions=${{
-          title: "Rate of Hospitalizations by County",
-        }}
-      />
     </div class="charts">
   </${Fragment}>
 `;
