@@ -34,10 +34,6 @@ export const Charts = () => html`
             text: "date",
           },
         },
-        yaxis: {
-          type: "log",
-          autorange: true,
-        },
       }}
     />
     <${CSVPlot}
