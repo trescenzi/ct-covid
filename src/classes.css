@@ -2,10 +2,26 @@
   box-sizing: border-box;
 }
 
+.dashboard {
+  display: grid;
+  grid-template-columns: min-content;
+  grid-template-rows: min-content;
+  grid-gap: 32px;
+  margin: 16px;
+  align-items: center;
+}
+
+@media (min-width: 750px) {
+  .dashboard {
+    grid-template-columns: min-content min-content;
+    grid-template-rows: min-content;
+    grid-gap: 16px;
+  }
+}
+
 .chart-container {
   height: 500px;
-  width: 500px;
-  border: 1px solid black;
+  width: 350px;
   position: relative;
 }
 
