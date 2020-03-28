@@ -10,8 +10,11 @@ export function ChartWithScaleSelection({
   layoutOptions = {},
 }) {
   const [scale, setScale] = useState("linear");
+  const [expanded, setExpanded] = useState(false);
   return html`
-    <div class="chart-container">
+    <div
+      class=${`chart-container ${expanded && "chart-container-full-screen"}`}
+    >
       <div class="chart-container-header">
         <div
           class=${`chart-container-tab ${scale === "linear" && "selected"}`}
@@ -24,6 +27,12 @@ export function ChartWithScaleSelection({
           onclick=${() => setScale("log")}
         >
           Log Scale
+        </div>
+        <div
+          class=${`chart-container-tab`}
+          onclick=${() => setExpanded(!expanded)}
+        >
+          ${expanded ? "Close Full Screen" : "Show Full Screen"}
         </div>
       </div>
       <${CSVPlot}
@@ -38,6 +47,7 @@ export function ChartWithScaleSelection({
             type: scale,
             autorange: true,
           },
+          height: expanded ? window.innerHeight : 450,
         }}
       />
     </div>
