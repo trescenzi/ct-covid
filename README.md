@@ -14,9 +14,13 @@ CT's Coronavirus portal](https://portal.ct.gov/Coronavirus).
 ## TODO
 
 - [x] Basic graphs
-- [ ] Actual layout
+- [x] Actual layout
+  - [ ] Less awful css
 - [ ] More Stats
   - [ ] Rates of hospilitization/death
   - [ ] Age group statistics
   - [ ] Town Statistics
 - [ ] Dropdown Selects for adding/removing data from graphs
+
+
+While there's a lot of really good data dashboards out there I couldn't find one that focused on Connecticut and that just displayed graphs so I built one. I'm updating it daily when the new numbers go out on ct.gov. I plan to add more specific information, such as age groups, town, and rate information, but still trying to figure out how to lay it out such that it doesn't get overwhelming. Hopefully this is helpful to someone. Open to suggestions. Let me know if there's ways you think this could be better.

@@ -1,9 +1,8 @@
 import { Plot } from "./preact-plotly.js";
 import { LoadingSpinner } from "./loading.js";
-import { fetchCSV } from "./csv.js";
-import { useEffect, useState } from "preact/hooks";
 import { Fragment } from "preact";
 import { html } from "htm/preact";
+import zipWith from "lodash-es/zipWith.js";
 
 const options = {
   displayModeBar: false,
@@ -20,37 +19,96 @@ const colors2 = [
   "#ffd43f",
 ];
 export function CSVPlot({
-  csvName,
+  csv,
   xColumn = "Date",
   yColumns,
   chartOptions = {},
   layoutOptions = {},
 }) {
-  const [chartData, setState] = useState();
-  useEffect(() => {
-    fetchCSV(csvName).then(({ data }) =>
-      setState(
-        yColumns.map((columnName, i) => ({
-          x: data.map((row) => row[xColumn]),
-          y: data.map((row) => row[columnName]),
-          name: columnName,
-          type: "scatter",
-          mode: "lines",
-          line: {
-            color: colors2[i],
-          },
-        }))
-      )
-    );
-  }, []);
+  const chartData =
+    csv &&
+    yColumns.map((columnName, i) => ({
+      x: csv.map((row) => row[xColumn]),
+      y: csv.map((row) => row[columnName]),
+      name: columnName,
+      type: "scatter",
+      mode: "lines",
+      line: {
+        color: colors2[i],
+      },
+    }));
+  console.log("CHART DATA", chartData);
+
   return html`
     <${Fragment}>
       ${
-        !chartData
+        !csv
           ? html`<${LoadingSpinner} />`
           : html`<${Plot}
               data=${chartData}
               layout=${layoutOptions}
+              options=${{
+                ...options,
+                ...chartOptions,
+              }}
+            />`
+      }
+    </${Fragment}>
+  `;
+}
+
+export function RateOfGrowthCSVChart({
+  csv,
+  yColumns,
+  chartOptions = {},
+  layoutOptions = {},
+}) {
+  const chartData =
+    csv &&
+    yColumns.map((columnName, i) => {
+      const values = csv.map((row) => row[columnName]);
+      const rateOfChange = zipWith(
+        values,
+        [0, ...values],
+        (current, previous) => current - previous
+      )
+        .slice(0, -1)
+        .map((value) => (value === 0 ? undefined : value));
+      return {
+        x: values,
+        y: rateOfChange,
+        name: columnName,
+        type: "scatter",
+        mode: "lines",
+        connectGaps: true,
+        line: {
+          color: colors2[i],
+        },
+      };
+    });
+
+  return html`
+    <${Fragment}>
+      ${
+        !csv
+          ? html`<${LoadingSpinner} />`
+          : html`<${Plot}
+              data=${chartData}
+              layout=${{
+                ...layoutOptions,
+                yaxis: {
+                  ...layoutOptions.yaxis,
+                  type: "log",
+                  autorange: true,
+                  title: "Increase from Previous Day",
+                },
+                xaxis: {
+                  ...layoutOptions.xaxis,
+                  type: "log",
+                  autorange: true,
+                  title: "Total Number of Cases",
+                },
+              }}
               options=${{
                 ...options,
                 ...chartOptions,

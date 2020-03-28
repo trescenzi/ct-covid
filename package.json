@@ -13,6 +13,7 @@
   "devDependencies": {
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
+    "lodash-es": "^4.17.15",
     "prettier": "^2.0.2",
     "rimraf": "^3.0.2",
     "snowpack": "^1.6.0",
@@ -20,13 +21,13 @@
     "preact": "^10.3.4",
     "es-module-shims": "^0.4.6"
   },
-  "dependencies": {},
   "snowpack": {
     "webDependencies": [
       "htm/preact",
       "preact",
       "preact/hooks",
-      "es-module-shims"
+      "es-module-shims",
+      "lodash-es/zipWith.js"
     ]
   },
   "husky": {

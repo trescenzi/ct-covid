@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 import { html } from "htm/preact";
 
 export function ChartWithScaleSelection({
-  csvName,
+  csv,
   xColumn = "Date",
   yColumns,
   chartOptions = {},
@@ -36,7 +36,7 @@ export function ChartWithScaleSelection({
         </div>
       </div>
       <${CSVPlot}
-        csvName=${csvName}
+        csv=${csv}
         xColumn=${xColumn}
         yColumns=${yColumns}
         chartOptions=${chartOptions}
@@ -45,6 +45,11 @@ export function ChartWithScaleSelection({
           yaxis: {
             ...layoutOptions.yaxis,
             type: scale,
+            autorange: true,
+          },
+          xaxis: {
+            ...layoutOptions.yaxis,
+            tyle: scale,
             autorange: true,
           },
           height: expanded ? window.innerHeight : 450,
