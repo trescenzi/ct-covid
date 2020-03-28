@@ -1,5 +1,5 @@
 import { html } from "htm/preact";
-import { CSVPlot } from "./csv-plot.js";
+import { ChartWithScaleSelection } from "./chart-container.js";
 
 const OVERALL = ["Overall"];
 const BY_COUNTY = [
@@ -29,7 +29,7 @@ const missingDataAnnotation = {
 };
 export const Charts = () => html`
   <div class="charts">
-    <${CSVPlot}
+    <${ChartWithScaleSelection}
       csvName="cases"
       xColumn="Date"
       yColumns=${OVERALL}
@@ -38,7 +38,7 @@ export const Charts = () => html`
         showLegend: true,
       }}
     />
-    <${CSVPlot}
+    <${ChartWithScaleSelection}
       csvName="cases"
       xColumn="Date"
       yColumns=${BY_COUNTY}
@@ -52,7 +52,7 @@ export const Charts = () => html`
         },
       }}
     />
-    <${CSVPlot}
+    <${ChartWithScaleSelection}
       csvName="deaths"
       xColumn="Date"
       yColumns=${OVERALL}
@@ -61,7 +61,7 @@ export const Charts = () => html`
         showLegend: true,
       }}
     />
-    <${CSVPlot}
+    <${ChartWithScaleSelection}
       csvName="deaths"
       xColumn="Date"
       yColumns=${BY_COUNTY}
@@ -70,29 +70,25 @@ export const Charts = () => html`
         showLegend: true,
       }}
     />
-    <div>
-      <${CSVPlot}
-        csvName="hospitalizations"
-        xColumn="Date"
-        yColumns=${OVERALL}
-        layoutOptions=${{
-          title: "Total Hospitalizations",
-          showLegend: true,
-          annotations: [missingDataAnnotation],
-        }}
-      />
-    </div>
-    <div>
-      <${CSVPlot}
-        csvName="hospitalizations"
-        xColumn="Date"
-        yColumns=${BY_COUNTY}
-        layoutOptions=${{
-          title: "Hospitalizations By County",
-          showLegend: true,
-          annotations: [missingDataAnnotation],
-        }}
-      />
-    </div>
+    <${ChartWithScaleSelection}
+      csvName="hospitalizations"
+      xColumn="Date"
+      yColumns=${OVERALL}
+      layoutOptions=${{
+        title: "Total Hospitalizations",
+        showLegend: true,
+        annotations: [missingDataAnnotation],
+      }}
+    />
+    <${ChartWithScaleSelection}
+      csvName="hospitalizations"
+      xColumn="Date"
+      yColumns=${BY_COUNTY}
+      layoutOptions=${{
+        title: "Hospitalizations By County",
+        showLegend: true,
+        annotations: [missingDataAnnotation],
+      }}
+    />
   </div>
 `;
