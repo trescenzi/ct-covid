@@ -5,6 +5,11 @@ that I can find, that provides the basic data in a more stripped down and easy
 to read format. This data is being sourced from the daily reports published [on
 CT's Coronavirus portal](https://portal.ct.gov/Coronavirus).
 
+## Other Good Resources
+
+- [Johns Hopkins GIS Dashboard](https://coronavirus.jhu.edu/map.html)
+- [Johns Hopkins Data](https://github.com/CSSEGISandData/COVID-19)
+
 ## TODO
 
 - [x] Basic graphs
