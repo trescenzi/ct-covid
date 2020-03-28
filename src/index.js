@@ -19,17 +19,25 @@ const Instructions = ({ onclose }) => html`
       <h4>Other Data Dashboards</h4>
       <ul>
         <li>
-          <a href="https://coronavirus.jhu.edu/map.html"
+          <a
+            rel="noopener"
+            target="_blank"
+            href="https://coronavirus.jhu.edu/map.html"
             >Johns Hopkins GIS Dashboard</a
           >
         </li>
         <li>
-          <a href="https://github.com/CSSEGISandData/COVID-19"
+          <a
+            rel="noopener"
+            target="_blank"
+            href="https://github.com/CSSEGISandData/COVID-19"
             >Johns Hopkins CSVs</a
           >
         </li>
         <li>
           <a
+            rel="noopener"
+            target="_blank"
             href="https://www.wunderground.com/wundermap?covid=1&lat=41.225&lon=-73.008&cm_ven=covid-map"
             >WeatherUnderground's Map</a
           >
@@ -54,7 +62,7 @@ function App() {
         Data Updated March 27th 2020
       </h2>
       <h3>
-        For official information visit <a href=${portalUrl}>ct.gov/Coronavirus</a>
+        For official information visit <a rel="noopener" target="_blank" href=${portalUrl}>ct.gov/Coronavirus</a>
       </h3>
       <div>
         <div class="instruction-link" onclick=${() =>
@@ -66,16 +74,16 @@ function App() {
     <${Charts} />
     <div class='footer'>
       <div>
-        Data from <a href=${portalUrl}>The State of Connecticut</a>
+        Data from <a rel="noopener" target="_blank" href=${portalUrl}>The State of Connecticut</a>
       </div>
       <div>
-        <a href="https://github.com/trescenzi/ct-covid">Open Source on Github</a>
+        <a rel="noopener" target="_blank" href="https://github.com/trescenzi/ct-covid">Open Source on Github</a>
       </div>
       <div>
-        <a href="https://plotly.com">Powered by Plotly.js</a>
+        <a rel="noopener" target="_blank" href="https://plotly.com">Powered by Plotly.js</a>
       </div>
       <div>
-        <a href="https://zeit.co">Hosted by Zeit</a>
+        <a rel="noopener" target="_blank" href="https://zeit.co">Hosted by Zeit</a>
       </div>
     </div>
     ${
