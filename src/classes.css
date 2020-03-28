@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.dashboard {
+.charts {
   display: grid;
   grid-template-columns: min-content;
   grid-template-rows: min-content;
@@ -13,7 +13,7 @@
 }
 
 @media (min-width: 750px) {
-  .dashboard {
+  .charts {
     grid-template-columns: min-content min-content;
     grid-template-rows: min-content;
     grid-gap: 16px;
@@ -59,7 +59,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #000;
+  background: #032980;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
