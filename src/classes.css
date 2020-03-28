@@ -72,6 +72,7 @@ h3 {
 
 .chart-container-header {
   display: flex;
+  background-color: white;
 }
 .chart-container-tab {
   border-bottom: 1px solid #0771bb;
