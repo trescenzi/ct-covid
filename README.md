@@ -9,6 +9,7 @@ CT's Coronavirus portal](https://portal.ct.gov/Coronavirus).
 
 - [Johns Hopkins GIS Dashboard](https://coronavirus.jhu.edu/map.html)
 - [Johns Hopkins Data](https://github.com/CSSEGISandData/COVID-19)
+- [WeatherUnderground's Map](https://www.wunderground.com/wundermap?covid=1&lat=41.225&lon=-73.008&cm_ven=covid-map)
 
 ## TODO
 
