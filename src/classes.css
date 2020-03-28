@@ -93,8 +93,49 @@ h3 {
   }
 }
 
-a {
+a,
+.instruction-link {
   color: rgba(3, 41, 128, 1);
+}
+
+.instructions-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.instructions-content {
+  background-color: white;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 16px;
+}
+
+.instructions-content h4 {
+  text-align: center;
+  margin: 8px;
+}
+
+.instructions-content button {
+  height: 30px;
+  width: 200px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 0 auto;
+  display: block;
+}
+
+.instructions {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* source: https://loading.io/css/ */
