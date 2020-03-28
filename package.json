@@ -1,0 +1,40 @@
+{
+  "name": "ct-covid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf public && snowpack --prepare && mkdir public && cp -r src public && cp -r web_modules public && cp index.html public && cp -r data public",
+    "prepare": "snowpack"
+  },
+  "author": "thomas crescenzi",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.9",
+    "prettier": "^2.0.2",
+    "rimraf": "^3.0.2",
+    "snowpack": "^1.6.0",
+    "htm": "^3.0.3",
+    "preact": "^10.3.4",
+    "es-module-shims": "^0.4.6"
+  },
+  "dependencies": {},
+  "snowpack": {
+    "webDependencies": [
+      "htm/preact",
+      "preact",
+      "preact/hooks",
+      "es-module-shims"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
+  }
+}
