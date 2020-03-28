@@ -14,7 +14,7 @@ const Instructions = ({ onclose }) => html`
         <li>
           Turn off lines by clicking their label. Focus them by double clicking.
         </li>
-        <li>Pinch or scroll to zoom.</li>
+        <li>Pinch or drag to zoom.</li>
       </ul>
       <button onclick=${onclose} type="button">
         Close
