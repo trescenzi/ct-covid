@@ -108,8 +108,7 @@ const ChartsByDate = ({ csvs }) => html`
 
 const RateCharts = ({ csvs }) => html`
   <${Fragment}>
-    <div class="rate-header">These charts show the rate at which cases, deaths,
-      and hospitalizations are occurring on log scales. Inspired by
+    <div class="rate-header">These charts show the rate at which cases are being added on a log scale. Inspired by
       <a rel="noopener" target="_blank" href='https://www.youtube.com/watch?v=54XLXg4fYsc'> Minute Physics</a>.
       When they no longer point up and to the right it's an indicator that preventative measures
       are working. If they are flat it means that the tracked statistic isn't increasing exponentially.
