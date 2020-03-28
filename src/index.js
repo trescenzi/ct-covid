@@ -1,9 +1,17 @@
-import { render, Fragment } from 'preact';
-import { html } from 'htm/preact';
-import { CSVPlot } from './csv-plot.js';
+import { render, Fragment } from "preact";
+import { html } from "htm/preact";
+import { CSVPlot } from "./csv-plot.js";
 
-const OVERALL = ['Overall'];
-const BY_COUNTY = ['Fairfield', 'Hartford', 'New Haven', 'New London', 'Middlesex', 'Tolland', 'Windham'];
+const OVERALL = ["Overall"];
+const BY_COUNTY = [
+  "Fairfield",
+  "Hartford",
+  "New Haven",
+  "New London",
+  "Middlesex",
+  "Tolland",
+  "Windham",
+];
 function App() {
   return html`
   <${Fragment}>
@@ -12,7 +20,7 @@ function App() {
       xColumn='Date'
       yColumns=${OVERALL}
       layoutOptions=${{
-        title: 'Total Cases',
+        title: "Total Cases",
         showLegend: true,
       }}
       />
@@ -21,7 +29,7 @@ function App() {
       xColumn='Date'
       yColumns=${BY_COUNTY}
       layoutOptions=${{
-        title: 'Cases by county',
+        title: "Cases by county",
         showLegend: true,
       }}
       />
@@ -30,7 +38,7 @@ function App() {
       xColumn='Date'
       yColumns=${OVERALL}
       layoutOptions=${{
-        title: 'Total Deaths',
+        title: "Total Deaths",
         showLegend: true,
       }}
       />
@@ -39,30 +47,36 @@ function App() {
       xColumn='Date'
       yColumns=${BY_COUNTY}
       layoutOptions=${{
-        title: 'Deaths By County',
+        title: "Deaths By County",
         showLegend: true,
       }}
       />
-    <${CSVPlot}
-      csvName='hospitalizations'
-      xColumn='Date'
-      yColumns=${OVERALL}
-      layoutOptions=${{
-        title: 'Total Hospitalizations',
-        showLegend: true,
-      }}
-      />
-    <${CSVPlot}
-      csvName='hospitalizations'
-      xColumn='Date'
-      yColumns=${BY_COUNTY}
-      layoutOptions=${{
-        title: 'Hospitalizations By County',
-        showLegend: true,
-      }}
-      />
+    <div>
+      <${CSVPlot}
+        csvName='hospitalizations'
+        xColumn='Date'
+        yColumns=${OVERALL}
+        layoutOptions=${{
+          title: "Total Hospitalizations",
+          showLegend: true,
+        }}
+        />
+      <div class="subtext">No data available before 3/20</div>
+    </div>
+    <div>
+      <${CSVPlot}
+        csvName='hospitalizations'
+        xColumn='Date'
+        yColumns=${BY_COUNTY}
+        layoutOptions=${{
+          title: "Hospitalizations By County",
+          showLegend: true,
+        }}
+        />
+      <div class="subtext">No data available before 3/20</div>
+    </div>
   </${Fragment}>
-  `
+  `;
 }
 
-render(html`<${App} />`, document.querySelector('#app'));
+render(html`<${App} />`, document.querySelector("#app"));
