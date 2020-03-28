@@ -70,6 +70,10 @@ h3 {
   bottom: 0;
 }
 
+.chart-container-full-screen .chart-container-header {
+  padding: 8px;
+}
+
 .chart-container-header {
   display: flex;
   background-color: white;
