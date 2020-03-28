@@ -11,6 +11,7 @@ const options = {
 };
 const colors2 = [
   "#032980",
+  "#6b3f90",
   "#804392",
   "#c76ca1",
   "#ffa1b4",

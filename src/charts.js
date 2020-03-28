@@ -5,6 +5,7 @@ const OVERALL = ["Overall"];
 const BY_COUNTY = [
   "Fairfield",
   "Hartford",
+  "Litchfield",
   "New Haven",
   "New London",
   "Middlesex",
