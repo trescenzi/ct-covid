@@ -16,6 +16,25 @@ const Instructions = ({ onclose }) => html`
         </li>
         <li>Pinch or drag to zoom.</li>
       </ul>
+      <h4>Other Data Dashboards</h4>
+      <ul>
+        <li>
+          <a href="https://coronavirus.jhu.edu/map.html"
+            >Johns Hopkins GIS Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/CSSEGISandData/COVID-19"
+            >Johns Hopkins CSVs</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.wunderground.com/wundermap?covid=1&lat=41.225&lon=-73.008&cm_ven=covid-map"
+            >WeatherUnderground's Map</a
+          >
+        </li>
+      </ul>
       <button onclick=${onclose} type="button">
         Close
       </button>
@@ -37,8 +56,11 @@ function App() {
       <h3>
         For official information visit <a href=${portalUrl}>ct.gov/Coronavirus</a>
       </h3>
-      <div class="instruction-link" onclick=${() => setShowInstructions(true)}>
-        Instructions
+      <div>
+        <div class="instruction-link" onclick=${() =>
+          setShowInstructions(true)}>
+          More Information
+        </div>
       </div>
     </div>
     <${Charts} />
