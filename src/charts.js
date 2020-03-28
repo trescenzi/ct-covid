@@ -11,6 +11,22 @@ const BY_COUNTY = [
   "Tolland",
   "Windham",
 ];
+
+const missingDataAnnotation = {
+  xref: "paper",
+  yref: "paper",
+  x: 0.5,
+  y: -0.1,
+  xanchor: "center",
+  yanchor: "top",
+  text: "No data available before 3/20",
+  showarrow: false,
+  font: {
+    family: "Arial",
+    size: 8,
+    color: "rgb(150,150,150)",
+  },
+};
 export const Charts = () => html`
   <div class="charts">
     <${CSVPlot}
@@ -62,9 +78,9 @@ export const Charts = () => html`
         layoutOptions=${{
           title: "Total Hospitalizations",
           showLegend: true,
+          annotations: [missingDataAnnotation],
         }}
       />
-      <div class="subtext">No data available before 3/20</div>
     </div>
     <div>
       <${CSVPlot}
@@ -74,9 +90,9 @@ export const Charts = () => html`
         layoutOptions=${{
           title: "Hospitalizations By County",
           showLegend: true,
+          annotations: [missingDataAnnotation],
         }}
       />
-      <div class="subtext">No data available before 3/20</div>
     </div>
   </div>
 `;
