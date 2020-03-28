@@ -139,7 +139,7 @@ a,
   color: rgba(3, 41, 128, 1);
 }
 
-.instructions-link {
+.instruction-link {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -164,6 +164,7 @@ a,
   border-radius: 4px;
   margin: 0 auto;
   display: block;
+  cursor: pointer;
 }
 
 .instructions {
