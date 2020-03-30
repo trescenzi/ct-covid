@@ -5,7 +5,7 @@ export function fetchCSV(name) {
 }
 
 function processCSV(csv) {
-  const [rawHeaders, ...body] = csv.split("\n");
+  const [rawHeaders, ...body] = csv.split("\n").map((s) => s.trim());
   const headers = rawHeaders.split(",");
 
   return {
