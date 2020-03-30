@@ -37,7 +37,6 @@ export function CSVPlot({
         color: colors2[i],
       },
     }));
-  console.log("CHART DATA", chartData);
 
   return html`
     <${Fragment}>
