@@ -1,16 +1,23 @@
-import { html } from 'htm/preact';
-import {useEffect, useRef} from 'preact/hooks'
+import { html } from "htm/preact";
+import { useEffect, useRef } from "preact/hooks";
 
-export const Plot = ({
-  data,
-  layout = {},
-  options = {},
-}) => {
+export const Plot = ({ data, layout = {}, options = {} }) => {
   const ref = useRef(null);
   useEffect(() => {
     if (!ref.current) return;
-    Plotly.newPlot(ref.current, data, layout, options);
+    Plotly.newPlot(
+      ref.current,
+      data,
+      {
+        ...layout,
+        font: {
+          family: "Fira Mono, monospace",
+          size: 12,
+        },
+      },
+      options
+    );
   });
 
-  return html`<div ref=${ref}/>`;
-}
+  return html`<div ref=${ref} />`;
+};
