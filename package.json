@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf public && snowpack --prepare && mkdir public && cp -r src public && cp -r web_modules public && cp index.html public && cp -r data public",
+    "build": "rimraf public && snowpack --prepare && mkdir public && cp -r src public && cp -r web_modules public && cp index.html public && cp -r data public && cp favicon.ico public",
     "prepare": "snowpack"
   },
   "author": "thomas crescenzi",
