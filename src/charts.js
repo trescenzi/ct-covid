@@ -32,6 +32,22 @@ const missingDataAnnotation = {
     color: "rgb(150,150,150)",
   },
 };
+const deathJumpAnnotation = {
+  xref: "paper",
+  yref: "paper",
+  x: 0.5,
+  y: -0.1,
+  xanchor: "center",
+  yanchor: "top",
+  text: "3/31 has 17 additional deaths from prior days.",
+  showarrow: false,
+  font: {
+    family: "Arial",
+    size: 8,
+    color: "rgb(150,150,150)",
+  },
+};
+
 function fetchCSVs() {
   return Promise.all([
     fetchCSV("cases"),
@@ -72,6 +88,7 @@ const ChartsByDate = ({ csvs }) => html`
       layoutOptions=${{
         title: "Total Deaths",
         showLegend: true,
+        annotations: [deathJumpAnnotation],
       }}
     />
     <${ChartWithScaleSelection}
@@ -81,6 +98,7 @@ const ChartsByDate = ({ csvs }) => html`
       layoutOptions=${{
         title: "Deaths By County",
         showLegend: true,
+        annotations: [deathJumpAnnotation],
       }}
     />
     <${ChartWithScaleSelection}
