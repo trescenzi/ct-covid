@@ -59,7 +59,7 @@ function App() {
         Connecticut Covid-19 Case Statistics
       </h1>
       <h2>
-        Data Updated March 31st 2020
+        Data Updated April 2nd 2020
       </h2>
       <h3>
         For official information visit <a rel="noopener" target="_blank" href=${portalUrl}>ct.gov/Coronavirus</a>
