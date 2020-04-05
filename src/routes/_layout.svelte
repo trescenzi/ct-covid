@@ -24,7 +24,7 @@
 
   @media (max-width: 450px) {
     main {
-      padding: 1em;
+      padding: 1em 0 0 0;
     }
   }
 </style>
