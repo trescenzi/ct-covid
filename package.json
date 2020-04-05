@@ -1,41 +1,40 @@
 {
-  "name": "ct-covid",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "TODO",
+  "description": "TODO",
+  "version": "0.0.1",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf public && snowpack --prepare && mkdir public && cp -r src public && cp -r web_modules public && cp index.html public && cp -r data public && cp favicon.ico public",
-    "prepare": "snowpack"
+    "dev": "sapper dev",
+    "build": "sapper export --legacy",
+    "start": "node __sapper__/build",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "run-p --race dev cy:run"
   },
-  "author": "thomas crescenzi",
-  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.1",
+    "polka": "next",
+    "sirv": "^0.4.0"
+  },
   "devDependencies": {
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.9",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-dsv": "^2.0.1",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-replace": "^2.2.0",
+    "@sveltejs/pancake": "0.0.13",
     "lodash-es": "^4.17.15",
-    "prettier": "^2.0.2",
-    "rimraf": "^3.0.2",
-    "snowpack": "^1.6.0",
-    "htm": "^3.0.3",
-    "preact": "^10.3.4",
-    "es-module-shims": "^0.4.6"
-  },
-  "snowpack": {
-    "webDependencies": [
-      "htm/preact",
-      "preact",
-      "preact/hooks",
-      "es-module-shims",
-      "lodash-es/zipWith.js"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "log-scale": "^1.0.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.20.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "sapper": "^0.27.0",
+    "svelte": "^3.0.0"
   }
 }
