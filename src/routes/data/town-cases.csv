@@ -1,170 +1,170 @@
 Town,Cases
 Andover,0
-Ansonia,30
+Griswold,2
+Prospect,12
+Ansonia,35
+Groton,5
+Putnam,1
 Ashford,4
+Guilford,15
+Redding,21
 Avon,11
-Barkhamsted,1
-Beacon Falls,9
-Berlin,16
-Bethany,3
-Bethel,52
-Bethlehem,4
-Bloomfield,25
-Bolton,4
-Bozrah,1
-Branford,28
-Bridgeport,145
-Bridgewater,3
-Bristol,24
-Brookfield,72
-Brooklyn,2
-Burlington,6
-Canaan,0
-Canterbury,0
-Canton,2
-Chaplin,0
-Cheshire,26
-Chester,2
-Clinton,7
-Colchester,4
-Colebrook,0
-Columbia,2
-Cornwall,1
-Coventry,5
-Cromwell,9
-Danbury,402
-Darien,91
-Deep River,4
-Derby,18
-Durham,4
-East Granby,2
-East Haddam,5
-East Hampton,4
-East Hartford,34
-East Haven,31
-East Lyme,3
-East Windsor,3
-Eastford,1
-Easton,6
-Ellington,7
-Enfield,41
-Essex,2
-Fairfield,62
-Farmington,20
-Franklin,1
-Glastonbury,18
-Goshen,1
-Granby,1
-Greenwich,189
-Griswold,1
-Groton,3
-Guilford,9
 Haddam,2
-Hamden,61
+Ridgefield,101
+Barkhamsted,1
+Hamden,84
+Rocky Hill,29
+Beacon Falls,11
 Hampton,0
-Hartford,125
-Hartland,0
-Harwinton,5
-Hebron,4
-Kent,5
-Killingly,2
-Killingworth,1
-Lebanon,2
-Ledyard,2
-Lisbon,2
-Litchfield,6
-Lyme,1
-Madison,14
-Manchester,51
-Mansfield,2
-Marlborough,3
-Meriden,40
-Middlebury,10
-Middlefield,2
-Middletown,35
-Milford,56
-Monroe,10
-Montville,2
-Morris,3
-Naugatuck,20
-New Britain,48
-New Canaan,61
-New Fairfield,47
-New Hartford,3
-New Haven,174
-New London,6
-New Milford,50
-Newington,32
-Newtown,48
-Norfolk,1
-North Branford,8
-North Canaan,1
-North Haven,15
-North Stonington,0
-Norwalk,435
-Norwich,3
-Old Lyme,3
-Old Saybrook,5
-Orange,8
-Oxford,18
-Plainfield,1
-Plainville,11
-Plymouth,3
-Pomfret,3
-Portland,6
-Preston,1
-Prospect,11
-Putnam,0
-Redding,20
-Ridgefield,88
-Rocky Hill,26
 Roxbury,3
+Berlin,17
+Hartford,125
 Salem,0
-Salisbury,3
+Bethany,4
+Hartland,0
+Salisbury,4
+Bethel,61
+Harwinton,5
 Scotland,0
-Seymour,20
+Bethlehem,4
+Hebron,4
+Seymour,27
+Bloomfield,33
+Kent,5
 Sharon,6
-Shelton,78
+Bolton,4
+Killingly,3
+Shelton,113
+Bozrah,1
+Killingworth,1
 Sherman,6
-Simsbury,9
-Somers,7
-South Windsor,15
-Southbury,19
-Southington,33
+Branford,40
+Lebanon,2
+Simsbury,10
+Bridgeport,163
+Ledyard,2
+Somers,8
+Bridgewater,3
+Lisbon,2
+South Windsor,14
+Bristol,27
+Litchfield,8
+Southbury,21
+Brookfield,81
+Lyme,1
+Southington,37
+Brooklyn,2
+Madison,17
 Sprague,0
-Stafford,21
-Stamford,589
+Burlington,6
+Manchester,62
+Stafford,27
+Canaan,0
+Mansfield,2
+Stamford,652
+Canterbury,0
+Marlborough,5
 Sterling,0
-Stonington,3
-Stratford,49
-Suffield,19
-Thomaston,10
+Canton,2
+Meriden,47
+Stonington,6
+Chaplin,0
+Middlebury,10
+Stratford,58
+Cheshire,27
+Middlefield,2
+Suffield,20
+Chester,8
+Middletown,42
+Thomaston,12
+Clinton,7
+Milford,63
 Thompson,1
-Tolland,10
-Torrington,30
-Trumbull,29
+Colchester,4
+Monroe,10
+Tolland,11
+Colebrook,0
+Montville,2
+Torrington,32
+Columbia,2
+Morris,3
+Trumbull,34
+Cornwall,1
+Naugatuck,28
 Union,0
-Vernon,15
+Coventry,5
+New Britain,49
+Vernon,21
+Cromwell,11
+New Canaan,65
 Voluntown,1
-Wallingford,24
+Danbury,470
+New Fairfield,51
+Wallingford,23
+Darien,100
+New Hartford,3
 Warren,0
+Deep River,4
+New Haven,234
 Washington,8
-Waterbury,160
-Waterford,1
-Watertown,14
+Derby,19
+New London,11
+Waterbury,236
+Durham,4
+New Milford,65
+Waterford,5
+East Granby,2
+Newington,35
+Watertown,15
+East Haddam,5
+Newtown,49
 West Hartford,36
-West Haven,62
+East Hampton,4
+Norfolk,1
+West Haven,85
+East Hartford,40
+North Branford,11
 Westbrook,3
+East Haven,37
+North Canaan,1
 Weston,32
-Westport,134
-Wethersfield,25
+East Lyme,3
+North Haven,23
+Westport,135
+East Windsor,4
+North Stonington,0
+Wethersfield,26
+Eastford,1
+Norwalk,503
 Willington,2
-Wilton,71
+Easton,6
+Norwich,5
+Wilton,73
+Ellington,8
+Old Lyme,3
 Winchester,3
-Windham,6
-Windsor,37
-Windsor Locks,6
+Enfield,45
+Old Saybrook,5
+Windham,7
+Essex,4
+Orange,13
+Windsor,51
+Fairfield,70
+Oxford,21
+Windsor Locks,8
+Farmington,23
+Plainfield,3
 Wolcott,11
-Woodbridge,6
+Franklin,1
+Plainville,11
+Woodbridge,8
+Glastonbury,21
+Plymouth,4
 Woodbury,9
+Goshen,1
+Pomfret,3
 Woodstock,7
+Granby,2
+Portland,8
+Greenwich,196
+Preston,1
