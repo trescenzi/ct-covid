@@ -33,7 +33,7 @@
 
 	li {
 		display: block;
-		float: left;
+    float: left;
 	}
 
 	[aria-current] {
@@ -86,7 +86,14 @@
     display: none;
   }
 
-  .phone-nav:hover ul,
+  .phone-nav ul li {
+    width: 100%;
+    float: none;
+  }
+  .phone-nav ul li a {
+    display: block;
+  }
+
   .phone-nav.show ul {
     display: flex;
   }
@@ -109,7 +116,7 @@
 	<ul>
     <li
       class="phone-nav"
-      on:touchend={handleClick}
+      on:click={handleClick}
       class:show={showDropdown}
       aria-current='{
       !segment ||
