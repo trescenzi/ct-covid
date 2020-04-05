@@ -109,7 +109,7 @@
 	<ul>
     <li
       class="phone-nav"
-      on:click={handleClick}
+      on:touchend={handleClick}
       class:show={showDropdown}
       aria-current='{
       !segment ||
