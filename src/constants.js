@@ -20,3 +20,4 @@ export const CHART_COLORS = [
     "#ffd43f",
   ];
 
+export const UPDATE_DATE = new Date('2020-04-05T04:00:00.000Z');

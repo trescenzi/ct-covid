@@ -2,6 +2,10 @@
 	<title>About</title>
 </svelte:head>
 
+<script>
+  import {UPDATE_DATE} from '../constants.js';
+</script>
+
 <style>
   h2 {
     margin-bottom: 0;
@@ -17,7 +21,7 @@
 </h1>
 <div class="data-source">
   <h2>
-    Data Updated April 2nd 2020
+    Data Updated {UPDATE_DATE.toLocaleDateString()}
   </h2>
   <div>
     For official information & data visit

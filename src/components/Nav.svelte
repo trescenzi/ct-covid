@@ -1,6 +1,6 @@
 <script>
 	export let segment;
-  import ChartNav from './ChartNav.svelte';
+  import {UPDATE_DATE} from '../constants.js';
   let showDropdown = false;
   function handleClick() {
     showDropdown = !showDropdown;
@@ -155,5 +155,5 @@
     <li> <a rel=prefetch aria-current='{segment === "maps" ? "page" : undefined}' href='maps'>maps</a></li>
 		<li><a aria-current='{segment === "about" ? "page" : undefined}' href='about'>about</a></li>
 	</ul>
-  <div class='updated'>Updated 04/02</div>
+  <div class='updated'>Updated {UPDATE_DATE.toLocaleDateString()}</div>
 </nav>
