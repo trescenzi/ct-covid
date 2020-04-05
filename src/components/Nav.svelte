@@ -68,10 +68,12 @@
     position: relative;
     padding: 1em 0.5em;
     cursor: pointer;
+    margin-right: 5px;
   }
 
-  .phone-nav::after {
-    margin-left: 4px;
+  .phone-nav::before {
+    position: absolute;
+    right: -4px;
     content: '⌄';
   }
 
