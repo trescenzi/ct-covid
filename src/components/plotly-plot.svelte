@@ -12,15 +12,15 @@
     visibility: hidden;
   }
 
-  @media (max-width: 450px) {
-    .container {
-      width: 350px;
-    }
-  }
-
   @media (max-width: 750px) {
     .container {
       width: 650px;
+    }
+  }
+
+  @media (max-width: 675px) {
+    .container {
+      width: 350px;
     }
   }
 </style>
