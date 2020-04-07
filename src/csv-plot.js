@@ -87,7 +87,7 @@ export function RateOfGrowthCSVChart({
     });
 
   return html`
-    <${Fragment}>
+    <div class="chart-container">
       ${
         !csv
           ? html`<${LoadingSpinner} />`
@@ -114,6 +114,6 @@ export function RateOfGrowthCSVChart({
               }}
             />`
       }
-    </${Fragment}>
+    </div>
   `;
 }

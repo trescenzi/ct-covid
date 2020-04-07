@@ -1,11 +1,20 @@
 * {
   box-sizing: border-box;
-  font-family: "Fira Sans";
+  /*font-family: "Fira Sans";*/
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  background-color: #fafafa;
 }
 
 html,
 body {
   margin: 0;
+}
+
+h1 {
+  font-weight: 700;
 }
 
 h1,
@@ -16,7 +25,7 @@ h3 {
 
 h2,
 h3 {
-  font-weight: 300;
+  font-weight: 500;
 }
 
 @media (max-width: 750px) {
@@ -27,6 +36,7 @@ h3 {
 
   h2,
   h3 {
+    font-weight: medium;
     font-size: 16px;
   }
 }
@@ -53,12 +63,22 @@ h3 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: min-content;
     grid-gap: 16px;
+    padding: 32px;
   }
 }
 
 .chart-container {
   position: relative;
   height: 500px;
+  box-shadow: 6px 6px 17px 0px rgba(3,41,128,0.3);
+  padding: 8px;
+  background-color: white;
+  border-radius: 8px;
+}
+@media (min-width: 500px) {
+  .chart-container {
+    padding: 16px;
+  }
 }
 
 .chart-container-full-screen {
@@ -93,28 +113,35 @@ h3 {
   justify-content: center;
   margin-top: 32px;
   font-size: 20px;
-  background-color: white;
 }
 .chart-container-header {
   display: flex;
-  background-color: white;
 }
 .chart-container-tab {
   border-bottom: 1px solid #0771bb;
   cursor: pointer;
+  font-size: 12px;
 }
 .chart-container-tab.selected {
   border-bottom-width: 4px;
+}
+.charts-container-header .chart-container-tab {
+  font-size: 20px;
+}
+@media (min-width: 500px) {
+  .chart-container-tab {
+    font-size: 16px;
+  }
 }
 .chart-container-tab + .chart-container-tab {
   margin-left: 16px;
 }
 
 .footer {
+  margin-top: 32px;
   display: flex;
   font-size: 12px;
   height: 40px;
-  background-color: #eee;
   font-weight: 500;
   align-items: center;
   justify-content: center;
