@@ -68,7 +68,7 @@ export function ChartWithScaleSelection({
             tyle: scale,
             autorange: true,
           },
-          height: expanded ? window.innerHeight : 390,
+          height: expanded ? window.innerHeight - 100 : 390,
         }}
       />
     </div>
