@@ -15,6 +15,9 @@ export function ChartWithScaleSelection({
     <div
       class=${`chart-container ${expanded && "chart-container-full-screen"}`}
     >
+      <div class="chart-container-title">
+        ${layoutOptions.title}
+      </div>
       <div class="chart-container-header">
         <div
           class=${`chart-container-tab ${scale === "linear" && "selected"}`}
@@ -42,6 +45,19 @@ export function ChartWithScaleSelection({
         chartOptions=${chartOptions}
         layoutOptions=${{
           ...layoutOptions,
+          legend: {
+            x: 0,
+            xanchor: 'top',
+            y: 1
+          },
+          margin: {
+            l: 40,
+            r: 10,
+            b: 30,
+            t: 0,
+            pad: 0
+          },
+          title: '',
           yaxis: {
             ...layoutOptions.yaxis,
             type: scale,
@@ -52,7 +68,7 @@ export function ChartWithScaleSelection({
             tyle: scale,
             autorange: true,
           },
-          height: expanded ? window.innerHeight : 450,
+          height: expanded ? window.innerHeight : 390,
         }}
       />
     </div>

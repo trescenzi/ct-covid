@@ -88,6 +88,10 @@ export function RateOfGrowthCSVChart({
 
   return html`
     <div class="chart-container">
+      <div class="chart-container-title">
+        ${layoutOptions.title}
+      </div>
+      <div class="chart-container-header"/>
       ${
         !csv
           ? html`<${LoadingSpinner} />`
@@ -95,6 +99,20 @@ export function RateOfGrowthCSVChart({
               data=${chartData}
               layout=${{
                 ...layoutOptions,
+                title: '',
+                legend: {
+                  x: 0,
+                  xanchor: 'top',
+                  y: 1
+                },
+                margin: {
+                  l: 40,
+                  r: 10,
+                  b: 30,
+                  t: 0,
+                  pad: 0
+                },
+                height: 390,
                 yaxis: {
                   ...layoutOptions.yaxis,
                   type: "log",

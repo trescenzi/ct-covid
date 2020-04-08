@@ -62,7 +62,7 @@ h3 {
   .charts {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: min-content;
-    grid-gap: 16px;
+    grid-gap: 32px;
     padding: 32px;
   }
 }
@@ -71,16 +71,9 @@ h3 {
   position: relative;
   height: 500px;
   box-shadow: 6px 6px 17px 0px rgba(3,41,128,0.3);
-  padding: 8px;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 16px;
 }
-@media (min-width: 500px) {
-  .chart-container {
-    padding: 16px;
-  }
-}
-
 .chart-container-full-screen {
   position: fixed;
   z-index: 1;
@@ -114,16 +107,23 @@ h3 {
   margin-top: 32px;
   font-size: 20px;
 }
+
+.chart-container-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 32px 0 0 32px;
+}
 .chart-container-header {
   display: flex;
+  border-bottom: 1px solid #D0D0D0;
+  padding: 16px 16px 0 16px;
 }
 .chart-container-tab {
-  border-bottom: 1px solid #0771bb;
   cursor: pointer;
   font-size: 12px;
 }
 .chart-container-tab.selected {
-  border-bottom-width: 4px;
+  border-bottom: 4px solid #0771bb;
 }
 .charts-container-header .chart-container-tab {
   font-size: 20px;
@@ -144,6 +144,7 @@ h3 {
   height: 40px;
   font-weight: 500;
   align-items: center;
+  padding: 16px 16px 0 16px;
   justify-content: center;
 }
 
