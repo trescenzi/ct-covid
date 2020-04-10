@@ -128,9 +128,6 @@ h3 {
 .charts-container-header .chart-container-tab {
   font-size: 20px;
 }
-.js-plotly-plot {
-  margin-top: 8px;
-}
 @media (min-width: 500px) {
   .chart-container-tab {
     font-size: 16px;

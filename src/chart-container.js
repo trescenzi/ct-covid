@@ -54,7 +54,7 @@ export function ChartWithScaleSelection({
             l: 40,
             r: 10,
             b: 30,
-            t: 0,
+            t: 8,
             pad: 0
           },
           title: '',
