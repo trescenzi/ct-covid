@@ -116,7 +116,7 @@ h3 {
 .chart-container-header {
   display: flex;
   border-bottom: 1px solid #D0D0D0;
-  padding: 16px 16px 0 16px;
+  padding: 16px 16px 0 32px;
 }
 .chart-container-tab {
   cursor: pointer;
@@ -127,6 +127,9 @@ h3 {
 }
 .charts-container-header .chart-container-tab {
   font-size: 20px;
+}
+.js-plotly-plot {
+  margin-top: 8px;
 }
 @media (min-width: 500px) {
   .chart-container-tab {
