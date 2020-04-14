@@ -5,21 +5,25 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf public && snowpack --prepare && mkdir public && cp -r src public && cp -r web_modules public && cp index.html public && cp -r data public && cp favicon.ico public",
+    "build": "rimraf public && snowpack --prepare && babel src --out-dir public/src --copy-files && cp -r web_modules public && cp index.html public && cp -r data public && cp favicon.ico public",
+    "develop": "rimraf public && snowpack --prepare && mkdir public && cp -r web_modules public && cp index.html public && cp -r data public && cp favicon.ico public && babel src --out-dir public/src --copy-files --watch",
     "prepare": "snowpack"
   },
   "author": "thomas crescenzi",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "babel-minify": "^0.5.1",
+    "es-module-shims": "^0.4.6",
+    "htm": "^3.0.3",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
     "lodash-es": "^4.17.15",
+    "preact": "^10.3.4",
     "prettier": "^2.0.2",
     "rimraf": "^3.0.2",
-    "snowpack": "^1.6.0",
-    "htm": "^3.0.3",
-    "preact": "^10.3.4",
-    "es-module-shims": "^0.4.6"
+    "snowpack": "^1.6.0"
   },
   "snowpack": {
     "webDependencies": [
@@ -27,7 +31,9 @@
       "preact",
       "preact/hooks",
       "es-module-shims",
-      "lodash-es/zipWith.js"
+      "lodash-es/zipWith.js",
+      "lodash-es/takeWhile.js",
+      "lodash-es/groupBy.js"
     ]
   },
   "husky": {
@@ -37,5 +43,8 @@
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3"
   }
 }

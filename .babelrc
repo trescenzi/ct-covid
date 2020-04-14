@@ -1,3 +1,4 @@
 {
+  "presets": ["minify"],
   "plugins": ["transform-inline-environment-variables"]
 }
