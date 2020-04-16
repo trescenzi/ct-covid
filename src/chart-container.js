@@ -15,6 +15,18 @@ export function ChartWithScaleSelection({
     <div
       class=${`chart-container ${expanded && "chart-container-full-screen"}`}
     >
+      <div
+        class="chart-container-expand"
+        onclick=${() => setExpanded(!expanded)}
+      >
+        ${expanded
+          ? html`<img
+              src="https://img.icons8.com/material/26/000000/collapse--v1.png"
+            />`
+          : html`<img
+              src="https://img.icons8.com/material/24/000000/expand--v1.png"
+            />`}
+      </div>
       <div class="chart-container-title">
         ${layoutOptions.title}
       </div>
@@ -31,12 +43,6 @@ export function ChartWithScaleSelection({
         >
           Log Scale
         </div>
-        <div
-          class=${`chart-container-tab`}
-          onclick=${() => setExpanded(!expanded)}
-        >
-          ${expanded ? "Close Full Screen" : "Show Full Screen"}
-        </div>
       </div>
       <${CSVPlot}
         csv=${csv}
@@ -47,17 +53,17 @@ export function ChartWithScaleSelection({
           ...layoutOptions,
           legend: {
             x: 0,
-            xanchor: 'top',
-            y: 1
+            xanchor: "top",
+            y: 1,
           },
           margin: {
             l: 40,
             r: 10,
             b: 30,
             t: 8,
-            pad: 0
+            pad: 0,
           },
-          title: '',
+          title: "",
           yaxis: {
             ...layoutOptions.yaxis,
             type: scale,

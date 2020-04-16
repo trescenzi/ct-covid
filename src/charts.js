@@ -3,9 +3,8 @@ import { Fragment } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { ChartWithScaleSelection } from "./chart-container.js";
 import { RateOfGrowthCSVChart } from "./csv-plot.js";
-import { fetchCSV } from "./csv.js";
+import { fetchDataSet } from "./csv.js";
 
-const OVERALL = ["Overall"];
 const BY_COUNTY = [
   "Fairfield",
   "Hartford",
@@ -49,27 +48,23 @@ const deathJumpAnnotation = {
 };
 
 function fetchCSVs() {
-  return Promise.all([
-    fetchCSV("cases"),
-    fetchCSV("hospitalizations"),
-    fetchCSV("deaths"),
-  ]);
+  return Promise.all([fetchDataSet("STATE"), fetchDataSet("COUNTY")]);
 }
 
-const ChartsByDate = ({ csvs }) => html`
+const ChartsByDate = ({ data }) => html`
   <div class="charts">
     <${ChartWithScaleSelection}
-      csv=${csvs.cases}
-      xColumn="Date"
-      yColumns=${OVERALL}
+      csv=${data.state}
+      xColumn="date"
+      yColumns=${["cases"]}
       layoutOptions=${{
         title: "Total Cases",
         showLegend: true,
       }}
     />
     <${ChartWithScaleSelection}
-      csv=${csvs.cases}
-      xColumn="Date"
+      csv=${data.county.cases}
+      xColumn="date"
       yColumns=${BY_COUNTY}
       layoutOptions=${{
         title: "Cases by county",
@@ -82,9 +77,9 @@ const ChartsByDate = ({ csvs }) => html`
       }}
     />
     <${ChartWithScaleSelection}
-      csv=${csvs.deaths}
-      xColumn="Date"
-      yColumns=${OVERALL}
+      csv=${data.state}
+      xColumn="date"
+      yColumns=${["deaths"]}
       layoutOptions=${{
         title: "Total Deaths",
         showLegend: true,
@@ -92,8 +87,8 @@ const ChartsByDate = ({ csvs }) => html`
       }}
     />
     <${ChartWithScaleSelection}
-      csv=${csvs.deaths}
-      xColumn="Date"
+      csv=${data.county.deaths}
+      xColumn="date"
       yColumns=${BY_COUNTY}
       layoutOptions=${{
         title: "Deaths By County",
@@ -102,9 +97,9 @@ const ChartsByDate = ({ csvs }) => html`
       }}
     />
     <${ChartWithScaleSelection}
-      csv=${csvs.hospitalizations}
-      xColumn="Date"
-      yColumns=${OVERALL}
+      csv=${data.state}
+      xColumn="date"
+      yColumns=${["hospitalizations"]}
       layoutOptions=${{
         title: "Total Hospitalizations",
         showLegend: true,
@@ -112,8 +107,8 @@ const ChartsByDate = ({ csvs }) => html`
       }}
     />
     <${ChartWithScaleSelection}
-      csv=${csvs.hospitalizations}
-      xColumn="Date"
+      csv=${data.county.hospitalizations}
+      xColumn="date"
       yColumns=${BY_COUNTY}
       layoutOptions=${{
         title: "Hospitalizations By County",
@@ -124,7 +119,7 @@ const ChartsByDate = ({ csvs }) => html`
   </div>
 `;
 
-const RateCharts = ({ csvs }) => html`
+const RateCharts = ({ data }) => html`
   <${Fragment}>
     <div class="rate-header">These charts show the rate at which cases are being added on a log scale. Inspired by
       <a rel="noopener" target="_blank" href='https://www.youtube.com/watch?v=54XLXg4fYsc'> Minute Physics</a>.
@@ -136,14 +131,14 @@ const RateCharts = ({ csvs }) => html`
     </div>
     <div class="charts">
       <${RateOfGrowthCSVChart}
-        csv=${csvs.cases}
-        yColumns=${OVERALL}
+        csv=${data.state}
+        yColumns=${["cases"]}
         layoutOptions=${{
           title: "Rate of Cases",
         }}
       />
       <${RateOfGrowthCSVChart}
-        csv=${csvs.cases}
+        csv=${data.county.cases}
         yColumns=${BY_COUNTY}
         layoutOptions=${{
           title: "Rate of Cases By County",
@@ -154,14 +149,13 @@ const RateCharts = ({ csvs }) => html`
 `;
 
 export const Charts = () => {
-  const [csvs, setState] = useState({});
+  const [data, setState] = useState({ state: [], county: {} });
   const [showDayCharts, setShowDateCharts] = useState(true);
   useEffect(() => {
-    fetchCSVs().then(([cases, hospitalizations, deaths]) => {
+    fetchCSVs().then(([state, county]) => {
       setState({
-        cases: cases.data,
-        hospitalizations: hospitalizations.data,
-        deaths: deaths.data,
+        state,
+        county,
       });
     });
   }, []);
@@ -183,8 +177,8 @@ export const Charts = () => {
     </div>
     ${
       showDayCharts
-        ? html`<${ChartsByDate} csvs=${csvs} />`
-        : html`<${RateCharts} csvs=${csvs} />`
+        ? html`<${ChartsByDate} data=${data} />`
+        : html`<${RateCharts} data=${data} />`
     }
   </${Fragment}>
 `;

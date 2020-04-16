@@ -1,7 +1,8 @@
 import { render, Fragment } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { html } from "htm/preact";
 import { Charts } from "./charts.js";
+import { getDateUpdated } from "./csv.js";
 
 const portalUrl = "https://portal.ct.gov/Coronavirus";
 
@@ -52,6 +53,8 @@ const Instructions = ({ onclose }) => html`
 
 function App() {
   const [showInstructions, setShowInstructions] = useState(false);
+  const [dateUpdated, setDateUpdated] = useState(undefined);
+  useEffect(() => getDateUpdated().then(setDateUpdated), []);
   return html`
   <${Fragment}>
     <div class='header'>
@@ -59,7 +62,11 @@ function App() {
         Connecticut Covid-19 Case Statistics
       </h1>
       <h2>
-        Data Updated April 14th 2020
+        Data Updated ${
+          dateUpdated
+            ? dateUpdated.toLocaleDateString()
+            : "fetching latest data"
+        }
       </h2>
       <h3>
         For official information visit <a rel="noopener" target="_blank" href=${portalUrl}>ct.gov/Coronavirus</a>

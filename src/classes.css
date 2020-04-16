@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   /*font-family: "Fira Sans";*/
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 html {
@@ -70,7 +70,7 @@ h3 {
 .chart-container {
   position: relative;
   height: 500px;
-  box-shadow: 6px 6px 17px 0px rgba(3,41,128,0.3);
+  box-shadow: 6px 6px 17px 0px rgba(3, 41, 128, 0.3);
   background-color: white;
   border-radius: 16px;
 }
@@ -108,6 +108,10 @@ h3 {
   font-size: 20px;
 }
 
+.chart-container-expand {
+  float: right;
+  padding: 16px;
+}
 .chart-container-title {
   font-size: 18px;
   font-weight: 500;
@@ -115,8 +119,9 @@ h3 {
 }
 .chart-container-header {
   display: flex;
-  border-bottom: 1px solid #D0D0D0;
-  padding: 16px 16px 0 32px;
+  border-bottom: 1px solid #d0d0d0;
+  margin-top: 16px;
+  padding-left: 16px;
 }
 .chart-container-tab {
   cursor: pointer;
