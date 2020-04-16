@@ -4,7 +4,7 @@ import { useEffect, useRef } from "preact/hooks";
 export const Plot = ({ data, layout = {}, options = {} }) => {
   const ref = useRef(null);
   useEffect(() => {
-    if (!ref.current) return;
+    if (!ref.current || !window.Plotly) return;
     Plotly.newPlot(
       ref.current,
       data,
