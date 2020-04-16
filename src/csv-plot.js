@@ -1,7 +1,6 @@
 import { Plot } from "./preact-plotly.js";
 import { LoadingSpinner } from "./loading.js";
-import { Fragment } from "preact";
-import { html } from "htm/preact";
+import { Fragment, h } from "preact";
 import zipWith from "lodash-es/zipWith.js";
 
 const options = {
@@ -38,22 +37,22 @@ export function CSVPlot({
       },
     }));
 
-  return html`
-    <${Fragment}>
-      ${
-        !csv
-          ? html`<${LoadingSpinner} />`
-          : html`<${Plot}
-              data=${chartData}
-              layout=${layoutOptions}
-              options=${{
-                ...options,
-                ...chartOptions,
-              }}
-            />`
-      }
-    </${Fragment}>
-  `;
+  return (
+    <>
+      {!csv ? (
+        <LoadingSpinner />
+      ) : (
+        <Plot
+          data={chartData}
+          layout={layoutOptions}
+          options={{
+            ...options,
+            ...chartOptions,
+          }}
+        />
+      )}
+    </>
+  );
 }
 
 export function RateOfGrowthCSVChart({
@@ -86,50 +85,48 @@ export function RateOfGrowthCSVChart({
       };
     });
 
-  return html`
+  return (
     <div class="chart-container">
-      <div class="chart-container-title">
-        ${layoutOptions.title}
-      </div>
+      <div class="chart-container-title">{layoutOptions.title}</div>
       <div class="chart-container-header" />
-      ${!csv
-        ? html`<${LoadingSpinner} />`
-        : html`<${Plot}
-            data=${chartData}
-            layout=${{
-              ...layoutOptions,
-              title: "",
-              legend: {
-                x: 0,
-                xanchor: "top",
-                y: 1,
-              },
-              margin: {
-                l: 40,
-                r: 10,
-                b: 30,
-                t: 0,
-                pad: 0,
-              },
-              height: 390,
-              yaxis: {
-                ...layoutOptions.yaxis,
-                type: "log",
-                autorange: true,
-                title: "Increase from Previous Day",
-              },
-              xaxis: {
-                ...layoutOptions.xaxis,
-                type: "log",
-                autorange: true,
-                title: "Total Number of Cases",
-              },
-            }}
-            options=${{
-              ...options,
-              ...chartOptions,
-            }}
-          />`}
+      !csv ? <LoadingSpinner />
+      :{" "}
+      <Plot
+        data={chartData}
+        layout={{
+          ...layoutOptions,
+          title: "",
+          legend: {
+            x: 0,
+            xanchor: "top",
+            y: 1,
+          },
+          margin: {
+            l: 40,
+            r: 10,
+            b: 30,
+            t: 0,
+            pad: 0,
+          },
+          height: 390,
+          yaxis: {
+            ...layoutOptions.yaxis,
+            type: "log",
+            autorange: true,
+            title: "Increase from Previous Day",
+          },
+          xaxis: {
+            ...layoutOptions.xaxis,
+            type: "log",
+            autorange: true,
+            title: "Total Number of Cases",
+          },
+        }}
+        options={{
+          ...options,
+          ...chartOptions,
+        }}
+      />
     </div>
-  `;
+  );
 }

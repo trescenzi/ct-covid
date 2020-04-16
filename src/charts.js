@@ -1,5 +1,4 @@
-import { html } from "htm/preact";
-import { Fragment } from "preact";
+import { Fragment, h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { ChartWithScaleSelection } from "./chart-container.js";
 import { RateOfGrowthCSVChart } from "./csv-plot.js";
@@ -51,22 +50,22 @@ function fetchCSVs() {
   return Promise.all([fetchDataSet("STATE"), fetchDataSet("COUNTY")]);
 }
 
-const ChartsByDate = ({ data }) => html`
+const ChartsByDate = ({ data }) => (
   <div class="charts">
-    <${ChartWithScaleSelection}
-      csv=${data.state}
+    <ChartWithScaleSelection
+      csv={data.state}
       xColumn="date"
-      yColumns=${["cases"]}
-      layoutOptions=${{
+      yColumns={["cases"]}
+      layoutOptions={{
         title: "Total Cases",
         showLegend: true,
       }}
     />
-    <${ChartWithScaleSelection}
-      csv=${data.county.cases}
+    <ChartWithScaleSelection
+      csv={data.county.cases}
       xColumn="date"
-      yColumns=${BY_COUNTY}
-      layoutOptions=${{
+      yColumns={BY_COUNTY}
+      layoutOptions={{
         title: "Cases by county",
         showLegend: true,
         xaxis: {
@@ -76,77 +75,88 @@ const ChartsByDate = ({ data }) => html`
         },
       }}
     />
-    <${ChartWithScaleSelection}
-      csv=${data.state}
+    <ChartWithScaleSelection
+      csv={data.state}
       xColumn="date"
-      yColumns=${["deaths"]}
-      layoutOptions=${{
+      yColumns={["deaths"]}
+      layoutOptions={{
         title: "Total Deaths",
         showLegend: true,
         annotations: [deathJumpAnnotation],
       }}
     />
-    <${ChartWithScaleSelection}
-      csv=${data.county.deaths}
+    <ChartWithScaleSelection
+      csv={data.county.deaths}
       xColumn="date"
-      yColumns=${BY_COUNTY}
-      layoutOptions=${{
+      yColumns={BY_COUNTY}
+      layoutOptions={{
         title: "Deaths By County",
         showLegend: true,
         annotations: [deathJumpAnnotation],
       }}
     />
-    <${ChartWithScaleSelection}
-      csv=${data.state}
+    <ChartWithScaleSelection
+      csv={data.state}
       xColumn="date"
-      yColumns=${["hospitalizations"]}
-      layoutOptions=${{
+      yColumns={["hospitalizations"]}
+      layoutOptions={{
         title: "Total Hospitalizations",
         showLegend: true,
         annotations: [missingDataAnnotation],
       }}
     />
-    <${ChartWithScaleSelection}
-      csv=${data.county.hospitalizations}
+    <ChartWithScaleSelection
+      csv={data.county.hospitalizations}
       xColumn="date"
-      yColumns=${BY_COUNTY}
-      layoutOptions=${{
+      yColumns={BY_COUNTY}
+      layoutOptions={{
         title: "Hospitalizations By County",
         showLegend: true,
         annotations: [missingDataAnnotation],
       }}
     />
   </div>
-`;
+);
 
-const RateCharts = ({ data }) => html`
-  <${Fragment}>
-    <div class="rate-header">These charts show the rate at which cases are being added on a log scale. Inspired by
-      <a rel="noopener" target="_blank" href='https://www.youtube.com/watch?v=54XLXg4fYsc'> Minute Physics</a>.
-      When they no longer point up and to the right it's an indicator that preventative measures
-      are working. If they are flat it means that the tracked statistic isn't increasing exponentially.
-      Gaps are due to there being no reported change. The per county charts are very messy.
-      You can double click on a county in the chart legend to only show that county. Given that there's not a
-      ton of data yet these are currently all tracking the daily increase, not weekly as done in the video.
+const RateCharts = ({ data }) => (
+  <>
+    <div class="rate-header">
+      These charts show the rate at which cases are being added on a log scale.
+      Inspired by
+      <a
+        rel="noopener"
+        target="_blank"
+        href="https://www.youtube.com/watch?v=54XLXg4fYsc"
+      >
+        {" "}
+        Minute Physics
+      </a>
+      . When they no longer point up and to the right it's an indicator that
+      preventative measures are working. If they are flat it means that the
+      tracked statistic isn't increasing exponentially. Gaps are due to there
+      being no reported change. The per county charts are very messy. You can
+      double click on a county in the chart legend to only show that county.
+      Given that there's not a ton of data yet these are currently all tracking
+      the daily increase, not weekly as done in the video.
     </div>
     <div class="charts">
-      <${RateOfGrowthCSVChart}
-        csv=${data.state}
-        yColumns=${["cases"]}
-        layoutOptions=${{
+      <RateOfGrowthCSVChart
+        csv={data.state}
+        yColumns={["cases"]}
+        layoutOptions={{
           title: "Rate of Cases",
         }}
       />
-      <${RateOfGrowthCSVChart}
-        csv=${data.county.cases}
-        yColumns=${BY_COUNTY}
-        layoutOptions=${{
+      <RateOfGrowthCSVChart
+        csv={data.county.cases}
+        yColumns={BY_COUNTY}
+        layoutOptions={{
           title: "Rate of Cases By County",
         }}
       />
-    </div class="charts">
-  </${Fragment}>
-`;
+    </div>
+  </>
+);
 
 export const Charts = () => {
   const [data, setState] = useState({ state: [], county: {} });
@@ -159,27 +169,27 @@ export const Charts = () => {
       });
     });
   }, []);
-  return html`
-  <${Fragment}>
-    <div class="charts-container-header">
+  return (
+    <>
+      <div class="charts-container-header">
         <div
-          class=${`chart-container-tab ${showDayCharts && "selected"}`}
-          onclick=${() => setShowDateCharts(true)}
+          class={`chart-container-tab ${showDayCharts && "selected"}`}
+          onclick={() => setShowDateCharts(true)}
         >
-        Data By Day
+          Data By Day
+        </div>
+        <div
+          class={`chart-container-tab ${!showDayCharts && "selected"}`}
+          onclick={() => setShowDateCharts(false)}
+        >
+          Rates of Growth
+        </div>
       </div>
-      <div
-        class=${`chart-container-tab ${!showDayCharts && "selected"}`}
-        onclick=${() => setShowDateCharts(false)}
-      >
-        Rates of Growth
-      </div>
-    </div>
-    ${
-      showDayCharts
-        ? html`<${ChartsByDate} data=${data} />`
-        : html`<${RateCharts} data=${data} />`
-    }
-  </${Fragment}>
-`;
+      {showDayCharts ? (
+        <ChartsByDate data={data} />
+      ) : (
+        <RateCharts data={data} />
+      )}
+    </>
+  );
 };

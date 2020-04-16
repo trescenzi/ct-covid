@@ -1,4 +1,4 @@
-import { html } from "htm/preact";
+import { h } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 export const Plot = ({ data, layout = {}, options = {} }) => {
@@ -19,5 +19,5 @@ export const Plot = ({ data, layout = {}, options = {} }) => {
     );
   });
 
-  return html`<div ref=${ref} />`;
+  return <div ref={ref} />;
 };

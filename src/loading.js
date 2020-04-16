@@ -1,4 +1,15 @@
-import { html } from 'htm/preact';
+import { h } from "preact";
 
 // source: https://loading.io/css/
-export const LoadingSpinner = () => html`<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
+export const LoadingSpinner = () => (
+  <div class="lds-roller">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+);

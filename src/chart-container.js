@@ -1,6 +1,6 @@
+import { h } from "preact";
 import { CSVPlot } from "./csv-plot.js";
 import { useState } from "preact/hooks";
-import { html } from "htm/preact";
 
 export function ChartWithScaleSelection({
   csv,
@@ -11,45 +11,39 @@ export function ChartWithScaleSelection({
 }) {
   const [scale, setScale] = useState("linear");
   const [expanded, setExpanded] = useState(false);
-  return html`
-    <div
-      class=${`chart-container ${expanded && "chart-container-full-screen"}`}
-    >
+  return (
+    <div class={`chart-container ${expanded && "chart-container-full-screen"}`}>
       <div
         class="chart-container-expand"
-        onclick=${() => setExpanded(!expanded)}
+        onclick={() => setExpanded(!expanded)}
       >
-        ${expanded
-          ? html`<img
-              src="https://img.icons8.com/material/26/000000/collapse--v1.png"
-            />`
-          : html`<img
-              src="https://img.icons8.com/material/24/000000/expand--v1.png"
-            />`}
+        {expanded ? (
+          <img src="https://img.icons8.com/material/26/000000/collapse--v1.png" />
+        ) : (
+          <img src="https://img.icons8.com/material/24/000000/expand--v1.png" />
+        )}
       </div>
-      <div class="chart-container-title">
-        ${layoutOptions.title}
-      </div>
+      <div class="chart-container-title">{layoutOptions.title}</div>
       <div class="chart-container-header">
         <div
-          class=${`chart-container-tab ${scale === "linear" && "selected"}`}
-          onclick=${() => setScale("linear")}
+          class={`chart-container-tab ${scale === "linear" && "selected"}`}
+          onclick={() => setScale("linear")}
         >
           Linear Scale
         </div>
         <div
-          class=${`chart-container-tab ${scale === "log" && "selected"}`}
-          onclick=${() => setScale("log")}
+          class={`chart-container-tab ${scale === "log" && "selected"}`}
+          onclick={() => setScale("log")}
         >
           Log Scale
         </div>
       </div>
-      <${CSVPlot}
-        csv=${csv}
-        xColumn=${xColumn}
-        yColumns=${yColumns}
-        chartOptions=${chartOptions}
-        layoutOptions=${{
+      <CSVPlot
+        csv={csv}
+        xColumn={xColumn}
+        yColumns={yColumns}
+        chartOptions={chartOptions}
+        layoutOptions={{
           ...layoutOptions,
           legend: {
             x: 0,
@@ -78,5 +72,5 @@ export function ChartWithScaleSelection({
         }}
       />
     </div>
-  `;
+  );
 }
