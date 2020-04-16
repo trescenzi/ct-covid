@@ -1,4 +1,13 @@
 {
   "presets": ["minify"],
-  "plugins": ["transform-inline-environment-variables"]
+  "plugins": [
+    "transform-inline-environment-variables",
+    [
+      "@babel/plugin-transform-react-jsx",
+      {
+        pragma: 'h',
+        pragmaFrag: 'Fragment',
+      }
+    ]
+  ]
 }

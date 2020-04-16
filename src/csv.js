@@ -137,7 +137,6 @@ function mergeData([governmentData, transcribedData]) {
     ...governmentData,
   ];
 }
-window.fetchData = fetchDataSet;
 const cachedCSVs = {
   cases: null,
   deaths: null,
