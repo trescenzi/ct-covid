@@ -107,7 +107,7 @@ function processDataByLocation(data, labelKey) {
           hospitalizations: {
             ...breakdown.hospitalizations,
             date: value.dateupdated,
-            [value[labelKey]]: value.hospitalizations,
+            [value[labelKey]]: value.hospitalization,
           },
         }),
         {}
