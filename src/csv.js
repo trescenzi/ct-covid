@@ -1,9 +1,9 @@
 import takeWhile from "lodash-es/takeWhile.js";
 import groupBy from "lodash-es/groupBy.js";
-const DATA_STATEWIDE = `https://data.ct.gov/resource/rf3k-f8fg.json?$$app_token=${process.env.CT_GOV_APP_TOKEN}`;
-const DATA_BY_COUNTY = `https://data.ct.gov/resource/bfnu-rgqt.json?$$app_token=${process.env.CT_GOV_APP_TOKEN}`;
-const DATA_BY_TOWN = `https://data.ct.gov/resource/28fr-iqnx.json?$$app_token=${process.env.CT_GOV_APP_TOKEN}&$limit=50000`;
-const DATE_UPDATED = `https://data.ct.gov/resource/rf3k-f8fg.json?$$app_token=${process.env.CT_GOV_APP_TOKEN}&$select=date`;
+const DATA_STATEWIDE = `https://data.ct.gov/resource/rf3k-f8fg.json?$$app_token=${process.env.CT_GOV_APP_TOKEN}&$order=date`;
+const DATA_BY_COUNTY = `https://data.ct.gov/resource/bfnu-rgqt.json?$$app_token=${process.env.CT_GOV_APP_TOKEN}&$order=dateupdated`;
+const DATA_BY_TOWN = `https://data.ct.gov/resource/28fr-iqnx.json?$$app_token=${process.env.CT_GOV_APP_TOKEN}&$limit=50000&$order=dateupdated`;
+const DATE_UPDATED = `https://data.ct.gov/resource/rf3k-f8fg.json?$$app_token=${process.env.CT_GOV_APP_TOKEN}&$select=date&$order=date`;
 
 const json = (r) => r.json();
 export function getDateUpdated() {
@@ -90,25 +90,23 @@ export function fetchDataSet(kind) {
 }
 
 function processDataByLocation(data, labelKey) {
-  return Object.values(
-    groupBy(data, ({ lastupdatedate }) => lastupdatedate)
-  ).reduce(
+  return Object.values(groupBy(data, ({ dateupdated }) => dateupdated)).reduce(
     (aggregateData, day) => {
       const dayData = day.reduce(
         (breakdown, value) => ({
           cases: {
             ...breakdown.cases,
-            date: value.lastupdatedate,
-            [value[labelKey]]: value.confirmedcases,
+            date: value.dateupdated,
+            [value[labelKey]]: value.cases,
           },
           deaths: {
             ...breakdown.deaths,
-            date: value.lastupdatedate,
+            date: value.dateupdated,
             [value[labelKey]]: value.deaths,
           },
           hospitalizations: {
             ...breakdown.hospitalizations,
-            date: value.lastupdatedate,
+            date: value.dateupdated,
             [value[labelKey]]: value.hospitalizedcases,
           },
         }),
