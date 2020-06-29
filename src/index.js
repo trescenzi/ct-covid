@@ -1,88 +1,47 @@
 import { render, Fragment, h } from "preact";
-import { useState, useEffect } from "preact/hooks";
-import { Charts } from "./charts.js";
-import { getDateUpdated } from "./csv.js";
 
 const portalUrl = "https://portal.ct.gov/Coronavirus";
 
-const Instructions = ({ onclose }) => (
-  <div class="instructions">
-    <div class="instructions-content">
-      <h4>How to Use</h4>
-      <ul>
-        <li>Hover, or tap on, lines to view specific data points.</li>
-        <li>
-          Turn off lines by clicking their label. Focus them by double clicking.
-        </li>
-        <li>Pinch or drag to zoom.</li>
-      </ul>
-      <h4>Other Data Dashboards</h4>
-      <ul>
-        <li>
-          <a
-            rel="noopener"
-            target="_blank"
-            href="https://coronavirus.jhu.edu/map.html"
-          >
-            Johns Hopkins GIS Dashboard
-          </a>
-        </li>
-        <li>
-          <a
-            rel="noopener"
-            target="_blank"
-            href="https://github.com/CSSEGISandData/COVID-19"
-          >
-            Johns Hopkins CSVs
-          </a>
-        </li>
-        <li>
-          <a
-            rel="noopener"
-            target="_blank"
-            href="https://www.wunderground.com/wundermap?covid=1&lat=41.225&lon=-73.008&cm_ven=covid-map"
-          >
-            WeatherUnderground's Map
-          </a>
-        </li>
-      </ul>
-      <button onclick={onclose} type="button">
-        Close
-      </button>
-    </div>
-  </div>
-);
-
 export function App() {
-  const [showInstructions, setShowInstructions] = useState(false);
-  const [dateUpdated, setDateUpdated] = useState(undefined);
-  useEffect(() => getDateUpdated().then(setDateUpdated), []);
   return (
     <>
       <div class="header">
         <h1>Connecticut Covid-19 Case Statistics</h1>
         <h2>
-          Data Updated{" "}
-          {dateUpdated
-            ? dateUpdated.toLocaleDateString()
-            : "fetching latest data"}
-        </h2>
-        <h3>
           For official information visit{" "}
           <a rel="noopener" target="_blank" href={portalUrl}>
             ct.gov/Coronavirus
           </a>
-        </h3>
+        </h2>
+      </div>
+      <div class="body">
+        <h4> Thanks for visiting!</h4>
         <div>
-          <div
-            class="instruction-link"
-            onclick={() => setShowInstructions(true)}
-          >
-            More Information
-          </div>
+          <p>
+            Around the middle of June CT updated their reporting to break out
+            presumptive positives, and deaths from the data. This broke the
+            charts here as they weren't expecting the underlying data to change.
+            I don't have the time to update this. In addition there are
+            significantly better charts out there at this point. I highly
+            recommend John's Hopkins dashboards. You can find them linked below:
+          </p>
+          <ul>
+            <li>
+              <a href="https://coronavirus.jhu.edu/data/state-timeline/new-confirmed-cases/connecticut">
+                CT Cases
+              </a>
+            </li>
+            <li>
+              <a href="https://coronavirus.jhu.edu/testing/individual-states/connecticut">
+                CT Test Positivity Rate
+              </a>
+            </li>
+            <li>
+              <a href="https://coronavirus.jhu.edu/us-map">US Map</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <Charts />
       <div class="footer">
         <div>
           Data from{" "}
@@ -110,10 +69,6 @@ export function App() {
           </a>
         </div>
       </div>
-      $
-      {showInstructions && (
-        <Instructions onclose={() => setShowInstructions(false)} />
-      )}
     </>
   );
 }
