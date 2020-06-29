@@ -21,9 +21,10 @@ export function App() {
             Around the middle of June CT updated their reporting to break out
             presumptive positives, and deaths from the data. This broke the
             charts here as they weren't expecting the underlying data to change.
-            I don't have the time to update this. In addition there are
-            significantly better charts out there at this point. I highly
-            recommend John's Hopkins dashboards. You can find them linked below:
+            I sadly no longer have the time to update this. In addition there
+            are significantly better charts out there at this point. As a result
+            I've decided to put this on hold. I highly recommend John's Hopkins
+            dashboards. You can find them linked below:
           </p>
           <ul>
             <li>
